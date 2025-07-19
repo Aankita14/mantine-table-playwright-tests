@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('Filtering Example - should filter by New Jersey', async ({ page }) => {
-  //Navigate to the page
+  //Open url and navigate to the page
   await page.goto('https://www.mantine-react-table.dev/?path=/story/features-filtering-examples--custom-filter-function-per-column');
 
   //Access the iframe
@@ -23,7 +23,7 @@ test('Filtering Example - should filter by New Jersey', async ({ page }) => {
   const rowCount = await tableRows.count();
   console.log(`Total rows found: ${rowCount}`);
 
-  //Optional wait for visual step-by-step debugging
+  //Optional wait
   await page.waitForTimeout(500);
 
   //Get column count from the first row
@@ -32,9 +32,10 @@ test('Filtering Example - should filter by New Jersey', async ({ page }) => {
   const columnCount = await tableColumns.count();
   console.log(`Total columns in first row: ${columnCount}`);
 
-  //Final wait to observe output (debug only)
+  //Final wait to observe output
   await page.waitForTimeout(500);
 
+  //Take screenshot
   await page.screenshot({ path: 'screenshots/filtering.png' });
 });
 

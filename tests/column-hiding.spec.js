@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('Column hiding: hide Address column', async ({ page }) => {
+  //Open url and navigate to the page
   await page.goto('https://www.mantine-react-table.dev/?path=/story/features-column-hiding-examples--column-hiding-enabled-default');
 
   //Access the iframe
@@ -23,5 +24,4 @@ test('Column hiding: hide Address column', async ({ page }) => {
   await page.screenshot({ path: 'screenshots/after-hiding-column.png', fullPage: true });
 
 
-});
- 
+}); 
